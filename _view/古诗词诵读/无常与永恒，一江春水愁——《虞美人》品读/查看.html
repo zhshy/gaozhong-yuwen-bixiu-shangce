@@ -51,5 +51,6 @@ const btns=document.querySelectorAll('nav button[data-t]'),
 function show(t){btns.forEach(b=>b.classList.toggle('on',b.dataset.t===t));
   figs.forEach(f=>f.classList.toggle('on',t==='all'||f.dataset.t===t));}
 btns.forEach(b=>b.onclick=()=>show(b.dataset.t));
-show('教学设计');
+const q=new URLSearchParams(location.search).get('t');
+show(q&&document.querySelector('nav button[data-t="'+q+'"]')?q:'教学设计');
 </script></body></html>
